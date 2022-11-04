@@ -4,7 +4,21 @@ document.addEventListener("DOMContentLoaded", () => {
     let guessedWords = [[]];
     let availableSpace = 1;
 
-    let word = "abcde"
+    let word = "aaaaa"
+
+    //#region Time
+    var newDate = new Date();
+    var newHours = newDate.getHours();
+    var newMinutes = newDate.getHours();
+
+    if (newHours > 15 && newMinutes < 30) {
+        word = "stop cheating"
+    }
+    else {
+        word = "aaaaa"
+    }
+    //#endregion
+
     let guessedWordCount = 0;
 
     const keys = document.querySelectorAll(".keyboard-row button");
@@ -96,7 +110,9 @@ document.addEventListener("DOMContentLoaded", () => {
             if (letter == "enter") {
                 HandleSubmitWord();
 
-                console.log(Direction(-20, -0, -40, 0))
+                return;
+            }
+            if (letter == "del") {
                 return;
             }
             UpdateGuessedWords(letter);
@@ -104,30 +120,25 @@ document.addEventListener("DOMContentLoaded", () => {
     }
 });
 
-function Distance(latitude1, longitude1, latitude2, longitude2)
-{
+function Distance(latitude1, longitude1, latitude2, longitude2) {
     var a = 0.5 - Math.cos((latitude2 - latitude1) * (Math.PI / 180)) / 2 + Math.cos(latitude1 * (Math.PI / 180)) * Math.cos(latitude2 * (Math.PI / 180)) * (1 - Math.cos((longitude2 - longitude1) * (Math.PI / 180))) / 2;
 
     return 12742 * Math.asin(Math.sqrt(a)); // 2 * R; R = 6371 km
 }
 
 function Direction(x1, y1, x2, y2) {
-    var angle = Math.atan2(y2 - y1, x2 - x1) * 180/Math.PI;
+    var angle = Math.atan2(y2 - y1, x2 - x1) * 180 / Math.PI;
 
-    if (angle >= 45 && angle <= 135)
-    {
-        console.log( "▴");
+    if (angle >= 45 && angle <= 135) {
+        console.log("▴");
     }
-    else if (angle <= 45 && angle >= -45)
-    {
+    else if (angle <= 45 && angle >= -45) {
         console.log("▸");
     }
-    else if (angle < -45 && angle >= -135)
-    {
+    else if (angle < -45 && angle >= -135) {
         console.log("▾");
     }
-    else if (angle <= -135 || angle >= 135)
-    {
+    else if (angle <= -135 || angle >= 135) {
         console.log("◂");
     }
 
@@ -135,16 +146,28 @@ function Direction(x1, y1, x2, y2) {
 }
 
 function Vector2(x, y) {
-	this.x = (x === undefined) ? 0 : x;
-	this.y = (y === undefined) ? 0 : y;
+    this.x = (x === undefined) ? 0 : x;
+    this.y = (y === undefined) ? 0 : y;
 }
 
 Vector2.prototype = {
-    add: function(vector) {
-		return new Vector2(this.x + vector.x, this.y + vector.y);
-	},
+    add: function (vector) {
+        return new Vector2(this.x + vector.x, this.y + vector.y);
+    },
 
-    subtract: function(vector) {
+    subtract: function (vector) {
         return new Vector2(this.x - vector.x, this.y - vector.y);
     },
+}
+
+function GetDate() {
+    var today = new Date();
+    var date = today.getDate() + '.' + (today.getMonth() + 1) + '.' + today.getFullYear();
+    return date;
+}
+
+function GetTime() {
+    var today = new Date();
+    var time = today.getHours() + ":" + today.getMinutes() + ":" + today.getSeconds();
+    return time;
 }

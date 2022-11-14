@@ -13,7 +13,7 @@ document.addEventListener("DOMContentLoaded", () => {
     let info = false;
 
     //#region Generate random from array based on day
-    const possibleWords = ["quack", "horse", "juice", "table", "clamp", "robot"]   // Words
+    const possibleWords = ["quuck", "hurse", "juuce", "tuble", "clump", "rubut"]   // Words
 
     const word = possibleWords[Math.floor(lerp(0, possibleWords.length, random()))]
 

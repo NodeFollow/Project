@@ -1,18 +1,17 @@
 document.addEventListener("DOMContentLoaded", () => {
     CreateSquares();
-
+    
     let guessedWords = [[]];
+    
     let availableSpace = 1;
-
-    // let word = "aaaaa"
-
+    
     let restart = false;
 
     let ready = true;
 
     let info = false;
 
-    const possibleWords = ["quuck", "hurse", "juuce", "tuble", "clump", "rubut"]   // Words
+    const possibleWords = ["Robot", "Clamp", "Cable", "Laser", "Wires", "Today"]
 
     const word = possibleWords[Math.floor(lerp(0, possibleWords.length, random()))]
 
@@ -20,7 +19,7 @@ document.addEventListener("DOMContentLoaded", () => {
 
     const keys = document.querySelectorAll(".keyboard-row button");
 
-    document.getElementById("Buy-me-coffee").onclick = function () { window.alert("Thank you! :)") };
+    document.getElementById("Buy-me-coffee").onclick = function () { window.alert("Thank you for your 100€ donation") };
 
     document.getElementById("Button").onclick = closeInfo;
 

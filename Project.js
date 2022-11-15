@@ -12,12 +12,9 @@ document.addEventListener("DOMContentLoaded", () => {
 
     let info = false;
 
-    //#region Generate random from array based on day
     const possibleWords = ["quuck", "hurse", "juuce", "tuble", "clump", "rubut"]   // Words
 
     const word = possibleWords[Math.floor(lerp(0, possibleWords.length, random()))]
-
-    // console.log(word)
 
     let guessedWordCount = 0;
 
@@ -177,10 +174,7 @@ document.addEventListener("DOMContentLoaded", () => {
     function random() {
         var today = new Date();
 
-        const dd = String(today.getDate() + 4);
-
-        // console.log(dd)
-
+        const dd = String(today.getDate());
         const mm = String(today.getMonth() + 1); //January is 0!
         const yyyy = today.getFullYear();
 
